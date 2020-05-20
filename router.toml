@@ -1,0 +1,16 @@
+[http]
+  [http.routers]
+     [http.routers.api]
+      rule = "HostRegexp(`{host:.*}`) && PathPrefix(`/api/`)"
+      middlewares = ["strip-prefix"]
+      service = "backend"
+
+  [http.middlewares]
+    [http.middlewares.strip-prefix.stripPrefix]
+      prefixes = ["/api"]
+
+  [http.services]
+    [http.services.backend.loadBalancer]
+        passHostHeader = false
+      [[http.services.backend.loadBalancer.servers]]
+	url = "https://httpbin.org/anything"

@@ -1,0 +1,13 @@
+defaultEntryPoints = ["http"]
+
+[api]
+  dashboard = true
+  insecure = true
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+
+[providers]
+  [providers.file]
+    filename = "/config/router.toml"
