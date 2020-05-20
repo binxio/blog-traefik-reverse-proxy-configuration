@@ -11,6 +11,6 @@
 
   [http.services]
     [http.services.backend.loadBalancer]
-        passHostHeader = false
+      passHostHeader = false
       [[http.services.backend.loadBalancer.servers]]
 	url = "https://httpbin.org/anything"
